@@ -1,0 +1,53 @@
+local options = {
+backup = false,                          -- ok creates a backup file
+clipboard = "unnamedplus",               -- ok allows neovim to access the system clipboard
+cmdheight = 1,                           -- ok keep status bar position close to bottom
+completeopt = { "menuone", "noselect" }, -- ok mostly just for cmp
+conceallevel = 0,                        -- so that `` is visible in markdown files
+fileencoding = "utf-8",                  -- ok the encoding written to a file
+hlsearch = true,                         -- ok highlight all matches on previous search pattern
+ignorecase = true,                       -- ok ignore case in search patterns
+mouse = "a",                             -- ok allow the mouse to be used in neovim
+pumheight = 10,                          -- pop up menu height
+showmode = false,                        -- ok we don't need to see things like -- INSERT -- anymore
+showtabline = 2,                         -- search tab-page always show tabs
+smartcase = true,                        -- ok used in the cases except /search smart case
+smartindent = true,                      -- ok make indenting smarter again
+splitbelow = true,                       -- ok force all horizontal splits to go below current window
+splitright = true,                       -- ok force all vertical splits to go to the right of current window
+swapfile = false,                        -- creates a swapfile
+termguicolors = true,                    -- set term gui colors (most terminals support this)
+timeoutlen = 500,                        -- time to wait for a mapped sequence to complete (in milliseconds)
+undofile = true,                         -- ok enable persistent undo
+updatetime = 300,                        -- ok faster completion (4000ms default)
+writebackup = false,                     -- ok if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+expandtab = true,                        -- ok convert tabs to spaces
+shiftwidth = 2,                          -- ok the number of spaces inserted for each indentation
+tabstop = 2,                             -- ok insert 2 spaces for a tab
+cursorline = true,                       -- ok highlight the current line
+cursorcolumn = false,                    -- ok cursor column.
+number = true,                           -- ok set numbered lines
+relativenumber = false,                  -- ok set relative numbered lines
+numberwidth = 4,                         -- ok set number column width to 2 {default 4}
+signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
+wrap = false,                            -- display lines as one long line
+scrolloff = 8,                           -- keep 8 height offset from above and bottom
+sidescrolloff = 8,                       -- keep 8 width offset from left and right
+guifont = "monospace:h17",               -- the font used in graphical neovim applications
+foldmethod = "indent",                     -- fold with nvim_treesitter
+-- foldexpr = "nvim_treesitter#foldexpr()",
+foldenable = false,                      -- no fold to be applied when open a file
+foldlevel = 99,                          -- if not set this, fold will be everywhere
+spell = false,                            -- add spell support
+spelllang = { 'en_us' },                 -- support which languages?
+diffopt="vertical,filler,internal,context:4",                      -- vertical diff split view
+cscopequickfix="s-,c-,d-,i-,t-,e-",       -- cscope output to quickfix window
+whichwrap = "h,l,<,>,[,],~",
+shortmess = "aoOTIcF",
+}
+
+for k, v in pairs(options) do
+	vim.opt[k] = v
+end
+vim.cmd [[set iskeyword+=-]]
+vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
