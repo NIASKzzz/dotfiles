@@ -8,6 +8,7 @@ local servers = {
   "sumneko_lua",
   "pyright",
   "bashls",
+  "clangd"
 }
 
 lsp_installer.setup()
@@ -32,6 +33,10 @@ for _, server in pairs(servers) do
   if server == "pyright" then
     local pyright_opts = require "user.lsp.settings.pyright"
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+  end
+  if server == "cland" then
+    local clangd_opts = require "user.lsp.settings.clangd"
+    opts = vim.tbl_deep_extend("force", clangd_opts, opts)
   end
 
 --  if server.name == "jsonls" then

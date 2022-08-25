@@ -17,11 +17,11 @@ end
 
 local kind_icons = {
 	Text = "",
-	Method = "",
-	Function = "",
-	Constructor = "",
+	Method = "m",
+	Function = "",
+	Constructor = "",
 	Field = "",
-	Variable = "",
+	Variable = "",
 	Class = "",
 	Interface = "",
 	Module = "",
@@ -99,8 +99,8 @@ cmp.setup({
 			vim_item.menu = ({
 				nvim_lsp = "LSP",
 				nvim_lua = "Lua",
-				luasnip = "Snip",
-				buffer = "BUF",
+				luasnip = "Snippet",
+				buffer = "Buffer",
 				path = "PATH",
 				emoji = "Emoji",
 			})[entry.source.name]
@@ -123,6 +123,6 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(),
 	},
 	experimental = {
-		ghost_text = true,
+		ghost_text = false,
 	},
 })

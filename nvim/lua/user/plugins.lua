@@ -46,6 +46,15 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "windwp/nvim-autopairs"
+  use "numToStr/Comment.nvim"
+  use "kyazdani42/nvim-web-devicons" -- icons for tree 
+  use "kyazdani42/nvim-tree.lua"     -- nvim-tree
+  use "akinsho/bufferline.nvim"
+  use "moll/vim-bbye"                -- for bufferline
+  use "nvim-lualine/lualine.nvim"
+  use "lukas-reineke/indent-blankline.nvim"
+  use "folke/which-key.nvim"
 
   -- My schemes
 --  use "EdenEast/nightfox.nvim"
@@ -54,7 +63,7 @@ return packer.startup(function(use)
 --  use "navarasu/onedark.nvim"
 --  use "lunarvim/colorschemes"
 --  use "glepnir/zephyr-nvim"
-  
+--
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
@@ -73,6 +82,24 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
+
+  -- telescope
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    -- or                            , branch = '0.1.x',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  -- treesitter
+  use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+  }
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+
+  -- Git
+  use "lewis6991/gitsigns.nvim"
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end

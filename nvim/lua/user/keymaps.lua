@@ -6,9 +6,9 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 --ok Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+keymap("", ";", "<Nop>", opts)
+vim.g.mapleader = ";"
+vim.g.maplocalleader = ";"
 
 -- Modes normal_mode = "n",
 --   insert_mode = "i",
@@ -31,7 +31,7 @@ keymap("n", "<C-W>m", ":WinShift<cr>", opts)
 
 
 -- FileExpoler
--- keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
 keymap('v', '<leader>f', "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 -- no highlight
@@ -44,7 +44,7 @@ keymap("n", "<leader>q", ":q<cr>", opts)
 keymap("n", "<leader>d", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 keymap("n", "<leader>D", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 -- exit whole program
-keymap("n", "ZZ", ":lua require('user.utils').SaveAndExit()<cr>", opts)
+--keymap("n", "ZZ", ":lua require('user.utils').SaveAndExit()<cr>", opts)
 -- remap macro record key
 keymap("n", "Q", "q", opts)
 -- cancel q
@@ -109,7 +109,7 @@ keymap("v", "p", '"_dP', opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 
--- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
+ keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
 -- keymap("n", "<Space>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 -- keymap("n", "<Space>f", "<cmd>lua require('telescope').extensions.frecency.frecency(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 -- keymap("n", "<Space>F", "<cmd>Telescope live_grep<cr>", opts)
@@ -126,34 +126,34 @@ keymap("v", "p", '"_dP', opts)
 keymap("n", "<leader>in", "<cmd>lua vim.lsp.buf.incoming_calls()<cr>", opts)
 
 -- debug to be learned
-keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint(); require'user.dap.dap-util'.store_breakpoints(true)<cr>", opts)
-keymap("n", "<leader>dB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>", opts)
--- keymap("n", "<leader>dr", "lua require'dap'.repl.open()<cr>", opts)
-keymap("n", "<F9>", "<cmd>lua require'dap'.run_last()<cr>", opts)
-keymap('n', '<F10>', '<cmd>lua require"user.dap.dap-util".reload_continue()<CR>', opts)
-keymap("n", "<F4>", "<cmd>lua require'dap'.terminate()<cr>", opts)
-keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<cr>", opts)
-keymap("n", "<F6>", "<cmd>lua require'dap'.step_over()<cr>", opts)
-keymap("n", "<F7>", "<cmd>lua require'dap'.step_into()<cr>", opts)
-keymap("n", "<F8>", "<cmd>lua require'dap'.step_out()<cr>", opts)
-keymap("n", "K", "<cmd>lua require'dapui'.eval()<cr>", opts)
--- keymap("n", "<leader>dt", "<cmd>lua require'dapui'.toggle()<cr>", opts)
--- keymap("n", "<leader>dx", "<cmd>lua require'dap'.terminate()<cr>", opts)
-
--- git diff view
-keymap('n', '<leader>j', ']c', opts)
-keymap('n', '<leader>k', '[c', opts)
-
--- unit test
-keymap("n", "<leader>rr", "<cmd>UltestNearest<cr>", opts)
-keymap("n", "<leader>rd", "<cmd>UltestDebugNearest<cr>", opts)
-
--- comment
-keymap("n", "gcf", "<cmd>Dox<cr>", opts)
-
--- sniprun
-keymap("n", "<leader>rf", ":%SnipRun<cr>", opts)
-keymap("v", "<leader>rs", ":%SnipRun<cr>", opts)
+--[[ keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint(); require'user.dap.dap-util'.store_breakpoints(true)<cr>", opts) ]]
+--[[ keymap("n", "<leader>dB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>", opts) ]]
+--[[ -- keymap("n", "<leader>dr", "lua require'dap'.repl.open()<cr>", opts) ]]
+--[[ keymap("n", "<F9>", "<cmd>lua require'dap'.run_last()<cr>", opts) ]]
+--[[ keymap('n', '<F10>', '<cmd>lua require"user.dap.dap-util".reload_continue()<CR>', opts) ]]
+--[[ keymap("n", "<F4>", "<cmd>lua require'dap'.terminate()<cr>", opts) ]]
+--[[ keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<cr>", opts) ]]
+--[[ keymap("n", "<F6>", "<cmd>lua require'dap'.step_over()<cr>", opts) ]]
+--[[ keymap("n", "<F7>", "<cmd>lua require'dap'.step_into()<cr>", opts) ]]
+--[[ keymap("n", "<F8>", "<cmd>lua require'dap'.step_out()<cr>", opts) ]]
+--[[ keymap("n", "K", "<cmd>lua require'dapui'.eval()<cr>", opts) ]]
+--[[ -- keymap("n", "<leader>dt", "<cmd>lua require'dapui'.toggle()<cr>", opts) ]]
+--[[ -- keymap("n", "<leader>dx", "<cmd>lua require'dap'.terminate()<cr>", opts) ]]
+--[[]]
+--[[ -- git diff view ]]
+--[[ keymap('n', '<leader>j', ']c', opts) ]]
+--[[ keymap('n', '<leader>k', '[c', opts) ]]
+--[[]]
+--[[ -- unit test ]]
+--[[ keymap("n", "<leader>rr", "<cmd>UltestNearest<cr>", opts) ]]
+--[[ keymap("n", "<leader>rd", "<cmd>UltestDebugNearest<cr>", opts) ]]
+--[[]]
+--[[ -- comment ]]
+--[[ keymap("n", "gcf", "<cmd>Dox<cr>", opts) ]]
+--[[]]
+--[[ -- sniprun ]]
+--[[ keymap("n", "<leader>rf", ":%SnipRun<cr>", opts) ]]
+--[[ keymap("v", "<leader>rs", ":%SnipRun<cr>", opts) ]]
 
 -- spell check
 vim.cmd(

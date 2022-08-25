@@ -76,9 +76,9 @@ M.on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
   end
 
-  --if client.name == "sumneko_lua" then
-  --  client.resolved_capabilities.document_formatting = false
-  --end
+  if client.name == "sumneko_lua" then
+    client.resolved_capabilities.document_formatting = false
+  end
 
   lsp_keymaps(bufnr)
   local status_ok, illuminate = pcall(require, "illuminate")
